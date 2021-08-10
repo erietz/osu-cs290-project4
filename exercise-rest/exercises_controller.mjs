@@ -31,6 +31,18 @@ app.post('/exercises', (req, res) => {
 
 });
 
+app.get('/exercises', (req, res) => {
+  console.log('get request to /exercises')
+});
+
+app.put('/exercises/:id', (req, res) => {
+  console.log('put request to /exercises:id')
+});
+
+app.delete('/exercises/:id', (req, res) => {
+  console.log('delete request to /exercises:id')
+});
+
 
 
 // Run the web server on port 3000----------------------------------------------
