@@ -6,33 +6,39 @@ import * as exercises from './exercises_model.mjs';
 const PORT = 3000;
 const app = express();
 
-// Print a more friendly message for request made to the root url
-app.get('/', (_, res) => {
-  res.send('Web server is up running');
-});
+// For sending application/json back as a response to a request
+// Allows parsing of req.body
+app.use(express.json());
 
 
+// Create a new exercise
 app.post('/exercises', (req, res) => {
 
   exercises.createExercise(
-    req.query.name,
-    req.query.reps,
-    req.query.weight,
-    req.query.unit,
-    req.query.date
+    req.body.name,
+    req.body.reps,
+    req.body.weight,
+    req.body.unit,
+    req.body.date
   )
     .then(exercise => {
-      res.send(exercise);
+      res.status(201).json(exercise);
     })
     .catch(error => {
       console.error(error);
-      res.send({ Error: 'Request failed' })
+      // TODO: Is 400 the correct status code to use here?
+      res.status(400).json({ Error: 'Request failed' })
     });
 
 });
 
 app.get('/exercises', (req, res) => {
-  console.log('get request to /exercises')
+  exercises.findExercises({}, '', 0)
+    .then(exercise => { res.json(exercise) })
+    .catch(error => { 
+      console.error(error) 
+      res.status(400).json( { Error: 'Request failed' } )
+    });
 });
 
 app.put('/exercises/:id', (req, res) => {

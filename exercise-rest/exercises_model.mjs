@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 const db = mongoose.connection;
 // Connectiong string to connect on port 27071 using the database named
 // users_db
-const dbURL = 'mongodb://localhost:27017/users_db';
+const dbURL = 'mongodb://localhost:27017/exercises';
 
 // Connect to the database. Including useUnifiedTopology removed a deprication
 // error each time the server was started.
@@ -43,4 +43,11 @@ export async function createExercise(name, reps, weight, unit, date) {
     date: date
   });
   return exercise.save();
+}
+
+export async function findExercises(filter, projection, limit) {
+  const query = Exercise.find(filter)
+    .select(projection)
+    .limit(limit);
+  return query.exec();
 }
