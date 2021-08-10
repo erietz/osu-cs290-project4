@@ -51,3 +51,12 @@ export async function findExercises(filter, projection, limit) {
     .limit(limit);
   return query.exec();
 }
+
+export async function replaceExercise({ _id, name, reps, weight, unit, date }) {
+  // console.log(_id, name, reps, weight, unit, date)
+  const result = await Exercise.replaceOne( {_id: _id},
+    { name: name, reps: reps, weight: weight, unit: unit, date: date });
+
+  console.log(result);
+  return result.nModified;
+}

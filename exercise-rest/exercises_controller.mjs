@@ -32,9 +32,9 @@ app.post('/exercises', (req, res) => {
 
 });
 
-app.get('/exercises', (req, res) => {
+app.get('/exercises', (_, res) => {
   exercises.findExercises({}, '', 0)
-    .then(exercise => { res.json(exercise) })
+    .then(exercise => { res.json(exercise) })   // default status code is 200
     .catch(error => { 
       console.error(error) 
       res.status(400).json( { Error: 'Request failed' } )
@@ -42,7 +42,27 @@ app.get('/exercises', (req, res) => {
 });
 
 app.put('/exercises/:id', (req, res) => {
-  console.log('put request to /exercises:id')
+  const args = {
+    _id: req.params.id,
+    name: req.body.name,
+    reps: req.body.reps,
+    weight: req.body.weight,
+    unit: req.body.unit,
+    date: req.body.date
+  }
+
+  exercises.replaceExercise(args)
+    .then(nModified => {
+      if (nModified === 1){
+        res.json(args) 
+      } else {
+        res.status(404).json({ Error: 'Resource not found' })
+      }
+    })
+    .catch(error => {
+      console.error(error)
+      res.status(400).json({ Error: 'Request failed' })
+    });
 });
 
 app.delete('/exercises/:id', (req, res) => {
