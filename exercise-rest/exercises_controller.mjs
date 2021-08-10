@@ -44,7 +44,6 @@ app.delete('/exercises/:id', (req, res) => {
 });
 
 
-
 // Run the web server on port 3000----------------------------------------------
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
