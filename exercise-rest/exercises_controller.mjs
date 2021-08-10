@@ -32,6 +32,7 @@ app.post('/exercises', (req, res) => {
 
 });
 
+// Read an exercise
 app.get('/exercises', (_, res) => {
   exercises.findExercises({}, '', 0)
     .then(exercise => { res.json(exercise) })   // default status code is 200
@@ -41,6 +42,7 @@ app.get('/exercises', (_, res) => {
     });
 });
 
+// Update an exercise
 app.put('/exercises/:id', (req, res) => {
   const args = {
     _id: req.params.id,
@@ -65,8 +67,21 @@ app.put('/exercises/:id', (req, res) => {
     });
 });
 
+// Delete an exercise
 app.delete('/exercises/:id', (req, res) => {
-  console.log('delete request to /exercises:id')
+  exercises.deleteExercise(req.params.id)
+    .then(deletedCount => {
+      if (deletedCount === 1) {
+        res.status(204).send()
+      } else {
+        res.status(404).json({ Error: 'Resource not found' })
+      }
+    })
+    .catch(error => {
+      console.error(error)
+      res.status(400).json({ Error: 'Request failed' })
+    });
+
 });
 
 

@@ -60,3 +60,8 @@ export async function replaceExercise({ _id, name, reps, weight, unit, date }) {
   console.log(result);
   return result.nModified;
 }
+
+export async function deleteExercise(_id) {
+  const result = await Exercise.deleteOne( {_id: _id} )
+  return result.deletedCount;
+}
