@@ -1,38 +1,171 @@
+/* Author      : Ethan Rietz */
+/* Date        : 2021-07-20 */
+/* Description : All of the custom CSS for this project */
+
+/* ------------------------------------------------- */
+/* colors */
+/* ------------------------------------------------- */
+:root {
+  --red: #fb8072;
+  --green: #b3de69;
+  --yellow: #ffffb3;
+  --blue: #8dd3c7;
+  --purple: #bebada;
+  --orange: #fdb462;
+  --grey90: #0c0c0d;
+  --grey80: #2a2a2e;
+  --grey70: #38383d;
+  --grey60: #4a4a4f;
+  --grey50: #737373;
+  --grey40: #b1b1b3;
+  --grey30: #d7d7db;
+  --grey20: #ededf0;
+  --grey10: #f9f9fa;
+  --white100: #ffffff;
+}
+
+/* ------------------------------------------------- */
+/* body */
+/* ------------------------------------------------- */
+body {
+  font-family: Ubuntu, Roboto, Verdana, sans-serif;
+  background-color: var(--grey80);
+  color: var(--white100);
+  margin: 5%;
+  padding: 5%;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* ------------------------------------------------- */
+/* footer */
+/* ------------------------------------------------- */
+footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.footer {
+  height: 8em;
+}
+
+/* ------------------------------------------------- */
+/* inverted link color */
+/* ------------------------------------------------- */
+#invertedColor {
+  background-color: var(--blue);
+  color: var(--grey90);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* ------------------------------------------------- */
+/* table formatting */ 
+/* ------------------------------------------------- */
+table {
+  width: 100%;
+}
+
+caption {
+  font-size: 2em;
+  margin: 1em;
+}
+
+/* borders */
+table, th, td {
+  border: 1px solid var(--grey70);
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.5em;
+}
+
+th {
+  background-color: var(--grey40);
+  color: black;
+}
+
+/* alternating row color */
+tr:nth-child(even) {
+  background-color: var(--grey50);
+}
+
+tr:nth-child(odd) {
+  background-color: var(--grey60);
+}
+
+tr:hover {
+  background-color: var(--blue);
+  color: var(--grey90);
+}
+
+/* td:hover { */
+/*   background-color: var(--orange); */
+/*   color: var(--grey90); */
+/* } */
+
+/* ------------------------------------------------- */
+/* form */
+/* ------------------------------------------------- */
+
+fieldset, legend, label, input, button {
+  font-family: Ubuntu, Roboto, Verdana, sans-serif;
+  margin: 0.5em;
+  padding: 0.5em;
+  background-color: var(--grey60);
+  color: var(--white100);
+  border-color: var(--grey70);
+}
+
+fieldset {
+  margin: auto;
+  margin-top: 3em;
+  width: 75%;
+}
+
+input, legend {
+  background-color: var(--grey70);
+}
+
+button {
+  border-radius: 8%;
+}
+
+/* ------------------------------------------------- */
+/* Headings */
+/* ------------------------------------------------- */
+
+h1, h2 {
+  color: var(--yellow);
+}
+
+a {
+  color: var(--blue);
+}
+
+a:visited {
+  color: var(--purple);
+}
+
+/* ------------------------------------------------- */
+/* Icons */
+/* ------------------------------------------------- */
+.icon {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+/* ----------------------------------------------------------------------------
+* From initial creation of react app
+* ---------------------------------------------------------------------------*/
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
