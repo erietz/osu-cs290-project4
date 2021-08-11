@@ -1,6 +1,6 @@
 import ExerciseRow from '../components/ExerciseRow.js'
 
-export default function ExerciseTable({ exercises }) {
+export default function ExerciseTable({ exercises, onDelete, onEdit }) {
   return (
     <table>
       <thead>
@@ -10,10 +10,12 @@ export default function ExerciseTable({ exercises }) {
           <th> Weight </th>
           <th> Unit </th>
           <th> Date </th>
+          <th> Edit </th>
+          <th> Delete </th>
         </tr>
       </thead>
       <tbody>
-        {exercises.map((exercise, i) => <ExerciseRow exercise={exercise} key={i}/> )}
+        {exercises.map((exercise, i) => <ExerciseRow exercise={exercise} onDelete={onDelete} onEdit={onEdit} key={i}/> )}
       </tbody>
     </table>
   );

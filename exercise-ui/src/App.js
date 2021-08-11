@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './pages/Home.js'
-import Create from './pages/CreateExercise.js'
-import Edit from './pages/EditExercise.js'
+import CreateExercise from './pages/CreateExercise.js'
+import EditExercise from './pages/EditExercise.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 function App() {
@@ -15,11 +15,11 @@ function App() {
         </Route>
 
         <Route path='/create'>
-          <Create/>
+          <CreateExercise/>
         </Route>
 
         <Route path='/edit'>
-          <Edit/>
+          <EditExercise/>
         </Route>
 
       </Router>
