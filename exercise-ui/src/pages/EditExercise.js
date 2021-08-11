@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default function EditExercise({ onEdit }) {
+export default function EditExercise({ exerciseToEdit }) {
 
   const history = useHistory();
 
-  const [name, setName] = useState('');
-  const [reps, setReps] = useState('');
-  const [weight, setWeight] = useState('');
-  const [unit, setUnit] = useState('');
-  const [date, setDate] = useState('');
+  const [name, setName] = useState(exerciseToEdit.name);
+  const [reps, setReps] = useState(exerciseToEdit.reps);
+  const [weight, setWeight] = useState(exerciseToEdit.weight);
+  const [unit, setUnit] = useState(exerciseToEdit.unit);
+  const [date, setDate] = useState(exerciseToEdit.date);
 
   const editExercise = async () => {
     const editExercise = {name, reps, weight, unit, date};
-    const response = await fetch('/exercises/id', {
+    const response = await fetch(`/exercises/${exerciseToEdit._id}`, {
       method: 'PUT',
       body: JSON.stringify(editExercise),
       headers: {
@@ -35,35 +35,30 @@ export default function EditExercise({ onEdit }) {
 
         <input 
           type="text"
-          placeholder="Name (e.g. deadlift)"
           value={name}
           onChange={e => setName(e.target.value)}
         />
 
         <input
           type="number"
-          placeholder="reps (e.g. 10)"
           value={reps}
           onChange={e => setReps(e.target.value)}
         />
 
         <input
           type="number"
-          placeholder="weight (e.g. 9000)"
           value={weight}
           onChange={e => setWeight(e.target.value)}
         />
 
         <input
           type="text"
-          placeholder="unit (e.g. lbs)"
           value={unit}
           onChange={e => setUnit(e.target.value)}
         />
 
         <input
           type="text"
-          placeholder="date (e.g. FIXME)"
           value={date}
           onChange={e => setDate(e.target.value)}
         />

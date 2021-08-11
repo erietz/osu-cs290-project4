@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-export default function Home() {
+export default function Home({ setExerciseToEdit }) {
 
   const history = useHistory();
 
@@ -38,6 +38,7 @@ export default function Home() {
 
   // Edit a row by clicking the edit icon
   const onEdit = exercise => {
+    setExerciseToEdit(exercise);
     history.push('/edit');
   };
 

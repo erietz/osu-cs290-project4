@@ -4,14 +4,16 @@ import Home from './pages/Home.js'
 import CreateExercise from './pages/CreateExercise.js'
 import EditExercise from './pages/EditExercise.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { useState } from 'react';
 
 function App() {
+  const [exerciseToEdit, setExerciseToEdit] = useState();
   return (
     <div className="App">
       <Router>
 
         <Route path='/' exact>
-          <Home/>
+          <Home setExerciseToEdit={setExerciseToEdit}/>
         </Route>
 
         <Route path='/create'>
@@ -19,7 +21,7 @@ function App() {
         </Route>
 
         <Route path='/edit'>
-          <EditExercise/>
+          <EditExercise exerciseToEdit={exerciseToEdit} />
         </Route>
 
       </Router>
