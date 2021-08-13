@@ -33,37 +33,53 @@ export default function EditExercise({ exerciseToEdit }) {
     <div>
       <h1>Edit a Exercise</h1>
 
-        <input 
-          type="text"
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
+        <fieldset>
 
-        <input
-          type="number"
-          value={reps}
-          onChange={e => setReps(e.target.value)}
-        />
+          <label for="name">Exercise Name</label> 
+          <input id="name"
+            type="text"
+            placeholder="deadlift"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          /> <br/>
 
-        <input
-          type="number"
-          value={weight}
-          onChange={e => setWeight(e.target.value)}
-        />
+          <label for="reps">Reps</label> 
+          <input id="reps"
+            type="number"
+            min="0"
+            placeholder="10"
+            value={reps}
+            onChange={e => setReps(e.target.value)}
+          /> <br/>
 
-        <input
-          type="text"
-          value={unit}
-          onChange={e => setUnit(e.target.value)}
-        />
+          <label for="weight">Weight</label> 
+          <input id="weight"
+            type="number"
+            min="0"
+            placeholder="210"
+            value={weight}
+            onChange={e => setWeight(e.target.value)}
+          /> <br/>
 
-        <input
-          type="text"
-          value={date}
-          onChange={e => setDate(e.target.value)}
-        />
+          <label for="unit">Unit</label> 
+          <input id="unit"
+            type="text"
+            placeholder="lbs/kgs"
+            value={unit}
+            onChange={e => setUnit(e.target.value)}
+          /> <br/>
 
-        <button onClick={editExercise}> Save </button>
+          <label for="date">Date</label> 
+          <input id="date"
+            type="text"
+            placeholder="08-13-2021"
+            value={date}
+            onChange={e => setDate(e.target.value)}
+          /> <br/>
+
+          <button onClick={editExercise}> Save </button>
+
+        </fieldset>
 
     </div>
   )

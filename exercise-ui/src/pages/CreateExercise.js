@@ -35,7 +35,7 @@ export default function CreateExercise() {
 
         <fieldset>
 
-          <label for="name">Exercise Name</label> <br/>
+          <label for="name">Exercise Name</label> 
           <input id="name"
             type="text"
             placeholder="deadlift"
@@ -43,7 +43,7 @@ export default function CreateExercise() {
             onChange={e => setName(e.target.value)}
           /> <br/>
 
-          <label for="reps">Reps</label> <br/>
+          <label for="reps">Reps</label> 
           <input id="reps"
             type="number"
             min="0"
@@ -52,7 +52,7 @@ export default function CreateExercise() {
             onChange={e => setReps(e.target.value)}
           /> <br/>
 
-          <label for="weight">Weight</label> <br/>
+          <label for="weight">Weight</label> 
           <input id="weight"
             type="number"
             min="0"
@@ -61,27 +61,19 @@ export default function CreateExercise() {
             onChange={e => setWeight(e.target.value)}
           /> <br/>
 
-          <label for="unit">Unit</label> <br/>
+          <label for="unit">Unit</label> 
           <input id="unit"
             type="text"
-            placeholder="unit (e.g. lbs)"
+            placeholder="lbs/kgs"
             value={unit}
             onChange={e => setUnit(e.target.value)}
           /> <br/>
 
-          <label for="unit2">Unit2</label> <br/>
-          <select id="unit2"
-            value={unit}
-            onChange={e => setUnit(e.target.value)}
-          >
-            <option value = "lbs"> lbs </option>
-            <option value = "kgs"> kgs </option>
-          </select> <br/>
 
-          <label for="date">Date</label> <br/>
+          <label for="date">Date</label> 
           <input id="date"
             type="text"
-            placeholder="date (e.g. FIXME)"
+            placeholder="08-13-2021"
             value={date}
             onChange={e => setDate(e.target.value)}
           /> <br/>

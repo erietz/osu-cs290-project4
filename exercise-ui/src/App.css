@@ -117,17 +117,23 @@ tr:hover {
 
 fieldset, legend, label, input, button {
   font-family: Ubuntu, Roboto, Verdana, sans-serif;
-  margin: 0.5em;
+  margin: 1em;
   padding: 0.5em;
   background-color: var(--grey60);
   color: var(--white100);
   border-color: var(--grey70);
 }
 
+label {
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+}
+
 fieldset {
   margin: auto;
   margin-top: 3em;
-  width: 75%;
+  width: 50%;
 }
 
 input, legend {
@@ -138,8 +144,17 @@ button {
   border-radius: 8%;
 }
 
-select, option {
+button:hover {
+  background-color: var(--blue);
+  color: var(--grey90);
+}
+
+select {
   margin: 1em;
+}
+
+option {
+  margin: 6em;
 }
 
 /* ------------------------------------------------- */
@@ -164,6 +179,11 @@ a:visited {
 .icon {
   padding-left: 0.5em;
   padding-right: 0.5em;
+}
+
+.icon:hover {
+  color: var(--grey90);
+  background-color: var(--orange);
 }
 
 /* ----------------------------------------------------------------------------
