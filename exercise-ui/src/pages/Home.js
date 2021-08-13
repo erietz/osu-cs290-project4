@@ -49,11 +49,9 @@ export default function Home({ setExerciseToEdit }) {
 
         <ExerciseTable exercises={exercises} onDelete={onDelete} onEdit={onEdit}></ExerciseTable>
 
-        <Link to='/create'>Create an exercise</Link>
-
         <br/>
 
-        <Link to='/edit'>Edit an exercise</Link>
+        <Link to='/create'>Create an exercise</Link>
 
     </>
   )

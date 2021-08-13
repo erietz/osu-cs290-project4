@@ -33,42 +33,62 @@ export default function CreateExercise() {
     <div>
       <h1>Create an Exercise</h1>
 
-        <input 
-          type="text"
-          placeholder="Name (e.g. deadlift)"
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
+        <fieldset>
 
-        <input
-          type="number"
-          placeholder="reps (e.g. 10)"
-          value={reps}
-          onChange={e => setReps(e.target.value)}
-        />
+          <label for="name">Exercise Name</label> <br/>
+          <input id="name"
+            type="text"
+            placeholder="deadlift"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          /> <br/>
 
-        <input
-          type="number"
-          placeholder="weight (e.g. 9000)"
-          value={weight}
-          onChange={e => setWeight(e.target.value)}
-        />
+          <label for="reps">Reps</label> <br/>
+          <input id="reps"
+            type="number"
+            min="0"
+            placeholder="10"
+            value={reps}
+            onChange={e => setReps(e.target.value)}
+          /> <br/>
 
-        <input
-          type="text"
-          placeholder="unit (e.g. lbs)"
-          value={unit}
-          onChange={e => setUnit(e.target.value)}
-        />
+          <label for="weight">Weight</label> <br/>
+          <input id="weight"
+            type="number"
+            min="0"
+            placeholder="210"
+            value={weight}
+            onChange={e => setWeight(e.target.value)}
+          /> <br/>
 
-        <input
-          type="text"
-          placeholder="date (e.g. FIXME)"
-          value={date}
-          onChange={e => setDate(e.target.value)}
-        />
+          <label for="unit">Unit</label> <br/>
+          <input id="unit"
+            type="text"
+            placeholder="unit (e.g. lbs)"
+            value={unit}
+            onChange={e => setUnit(e.target.value)}
+          /> <br/>
 
-        <button onClick={addExercise}> Create </button>
+          <label for="unit2">Unit2</label> <br/>
+          <select id="unit2"
+            value={unit}
+            onChange={e => setUnit(e.target.value)}
+          >
+            <option value = "lbs"> lbs </option>
+            <option value = "kgs"> kgs </option>
+          </select> <br/>
+
+          <label for="date">Date</label> <br/>
+          <input id="date"
+            type="text"
+            placeholder="date (e.g. FIXME)"
+            value={date}
+            onChange={e => setDate(e.target.value)}
+          /> <br/>
+
+          <button onClick={addExercise}> Create </button>
+
+        </fieldset>
 
     </div>
   )

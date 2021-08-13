@@ -10,8 +10,8 @@ export default function ExerciseTable({ exercises, onDelete, onEdit }) {
           <th> Weight </th>
           <th> Unit </th>
           <th> Date </th>
-          <th> Edit </th>
-          <th> Delete </th>
+          <th> </th>
+          <th> </th>
         </tr>
       </thead>
       <tbody>

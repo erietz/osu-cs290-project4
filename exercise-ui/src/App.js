@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './pages/Home.js'
 import CreateExercise from './pages/CreateExercise.js'
