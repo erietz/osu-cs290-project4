@@ -34,6 +34,17 @@ const exerciseSchema = mongoose.Schema({
 // A class whose instances will be mapped to a document in the DB
 const Exercise = mongoose.model('Exercise', exerciseSchema);
 
+/*
+* Creates a new exercise in the database.
+* @param {String} name: required
+* @param {Number} reps: required
+* @param {Number} weight: required
+* @param {String} unit: required
+* @param {String} date: required (e.g. 06-24-21)
+* @return {JSON} A promise which settles to an object with all of thet
+* parameters given and a unique _id which identies the document in the
+* database.
+*/
 export async function createExercise(name, reps, weight, unit, date) {
   const exercise = new Exercise({
     name: name,
@@ -45,6 +56,14 @@ export async function createExercise(name, reps, weight, unit, date) {
   return exercise.save();
 }
 
+/*
+* Retrieves matching exercises from the database
+* @param {Object} filter: matches documents with the same schema
+* @param {Number} projection: which fields from the document to include/exclude
+* @param {String} limit: number of documents to retrieve
+* @returns a promise which settles to an array of JSON objects corresponding
+* the documents matched
+*/
 export async function findExercises(filter, projection, limit) {
   const query = Exercise.find(filter)
     .select(projection)
@@ -52,6 +71,18 @@ export async function findExercises(filter, projection, limit) {
   return query.exec();
 }
 
+/*
+* Updated all of the information for an exercise in-place and does not generate
+* a new _id.
+* @param {String} _id: required (the _id returned from a POST request)
+* @param {String} name: required
+* @param {Number} reps: required
+* @param {Number} weight: required
+* @param {String} unit: required
+* @param {String} date: required (e.g. 06-24-21)
+* @return {Number} A promise which settles to the number of documents modified.
+* Since the _id's are unique, either 0 or 1.
+*/
 export async function replaceExercise({ _id, name, reps, weight, unit, date }) {
   // console.log(_id, name, reps, weight, unit, date)
   const result = await Exercise.replaceOne( {_id: _id},
@@ -61,6 +92,11 @@ export async function replaceExercise({ _id, name, reps, weight, unit, date }) {
   return result.nModified;
 }
 
+/*
+* Deletes an exercise from the database based on its _id.
+* @return {Number} The number of documents deleted in the database.  Since the
+* _id's are unique, either 0 or 1.
+*/
 export async function deleteExercise(_id) {
   const result = await Exercise.deleteOne( {_id: _id} )
   return result.deletedCount;
