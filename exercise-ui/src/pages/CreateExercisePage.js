@@ -1,18 +1,24 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default function CreateExercise() {
+export default function CreateExercisePage() {
 
   const history = useHistory();
 
+  // Variables which are initialized to empty string and updated by form below
   const [name, setName] = useState('');
   const [reps, setReps] = useState('');
   const [weight, setWeight] = useState('');
   const [unit, setUnit] = useState('');
   const [date, setDate] = useState('');
 
+  //----------------------------------------------------------------------------
+  // Make a POST request to create a new exercise
+  //----------------------------------------------------------------------------
   const addExercise = async () => {
+    // Create new object with the variables set in the form
     const newExercise = {name, reps, weight, unit, date};
+
     const response = await fetch('/exercises', {
       method: 'POST',
       body: JSON.stringify(newExercise),
@@ -26,6 +32,7 @@ export default function CreateExercise() {
     } else {
       alert(`Failed to add movie, status code = ${response.status}`);
     }
+    // Return to home page
     history.push('/');
   }
 

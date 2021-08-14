@@ -1,21 +1,29 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default function EditExercise({ exerciseToEdit }) {
+export default function EditExercisePage({ exerciseToEdit }) {
 
   const history = useHistory();
 
+  // Variables which are initialized to current values of the exercise object,
+  // but get updated by the form.
   const [name, setName] = useState(exerciseToEdit.name);
   const [reps, setReps] = useState(exerciseToEdit.reps);
   const [weight, setWeight] = useState(exerciseToEdit.weight);
   const [unit, setUnit] = useState(exerciseToEdit.unit);
   const [date, setDate] = useState(exerciseToEdit.date);
 
+  //----------------------------------------------------------------------------
+  // Make a PUT request to update the exercise with updatedExercise
+  //----------------------------------------------------------------------------
   const editExercise = async () => {
-    const editExercise = {name, reps, weight, unit, date};
+    // Build a new updatedExercise object out of the state variables that have
+    // been submitted through the form below
+    const updatedExercise = {name, reps, weight, unit, date};
+
     const response = await fetch(`/exercises/${exerciseToEdit._id}`, {
       method: 'PUT',
-      body: JSON.stringify(editExercise),
+      body: JSON.stringify(updatedExercise),
       headers: {
         'Content-Type': 'application/json'
       }
