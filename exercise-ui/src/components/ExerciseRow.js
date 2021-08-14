@@ -1,6 +1,6 @@
 import { MdDeleteForever, MdModeEdit } from 'react-icons/md'
 
-export default function({ exercise, onDelete, onEdit }) {
+export default function ExerciseRow({ exercise, onDelete, onEdit }) {
   return (
     <tr>
       <td>{exercise.name}</td>
