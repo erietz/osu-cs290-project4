@@ -10,5 +10,5 @@ operations.
 
 [MongoDB]: https://www.mongodb.com/
 [Express]: https://expressjs.com/
-[React]: https://expressjs.com/
+[React]: https://reactjs.org/
 [Node.js]: https://nodejs.org/en/
