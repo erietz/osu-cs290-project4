@@ -5,7 +5,7 @@ in the current directory. It handles the http requests described below.
 
 The schema for each of the requests is as follows:
 
-```json
+```javascript
 {
   name: { type: String, required: true },
   reps: { type: Number, required: true },
